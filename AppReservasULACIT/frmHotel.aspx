@@ -18,6 +18,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="Container">
+        <br /><br />
  <h1><asp:Label ID="Label1" runat="server" Text="Mantenimiento de hotel"></asp:Label></h1>
         <asp:GridView Width="100%" ID="gvHoteles" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="gvHoteles_RowDataBound">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

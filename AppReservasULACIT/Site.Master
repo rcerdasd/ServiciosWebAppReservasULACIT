@@ -31,12 +31,18 @@
                         <li><a runat="server" href="frmHotel.aspx">Hotel</a></li>
                         <li><a runat="server" href="frmHabitacion.aspx">Habitacion</a></li>
                         <li><a runat="server" href="frmReserva.aspx">Reserva</a></li>
+                        <li><a runat="server" href="frmRentacar.aspx">Rentacar</a></li>
+                        <li><a runat="server" href="frmVehiculo.aspx">Vehiculo</a></li>
                     </ul>
                 </div>
             </div>
         </div>
+        <br /><br /><br /><br />
+                <h1><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></h1>
+                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
             </asp:ContentPlaceHolder>
         </div>
     </form>

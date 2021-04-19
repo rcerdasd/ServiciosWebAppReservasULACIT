@@ -290,7 +290,6 @@ C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\bin\es\System.Web.WebPag
 C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\obj\Debug\AppReservasULACIT.csproj.App.config
-C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\obj\Debug\AppReservasULACIT.csprojAssemblyReference.cache
 C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\obj\Debug\AppReservasULACIT.csproj.CoreCompileInputs.cache
 C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\obj\Debug\AppReservasULACIT.csproj.CopyComplete
 C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\obj\Debug\AppReservasULACIT.dll

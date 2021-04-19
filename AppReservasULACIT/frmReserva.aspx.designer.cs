@@ -11,7 +11,7 @@ namespace AppReservasULACIT
 {
 
 
-    public partial class frmHabitacion
+    public partial class frmReserva
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// gvHabitaciones control.
+        /// gvReservas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvHabitaciones;
+        protected global::System.Web.UI.WebControls.GridView gvReservas;
 
         /// <summary>
         /// Label2 control.
@@ -42,13 +42,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// txtCodigoHabitacion control.
+        /// txtCodigo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoHabitacion;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
 
         /// <summary>
         /// Label3 control.
@@ -60,13 +60,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// txtCodigoHotel control.
+        /// txtCodigoUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoHotel;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoUsuario;
 
         /// <summary>
         /// Numero control.
@@ -78,13 +78,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Numero;
 
         /// <summary>
-        /// txtNumHab control.
+        /// txtCodHab control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumHab;
+        protected global::System.Web.UI.WebControls.TextBox txtCodHab;
 
         /// <summary>
         /// Label4 control.
@@ -96,40 +96,67 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// txtCapacidad control.
+        /// txtFechaIngreso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCapacidad;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaIngreso;
 
         /// <summary>
-        /// txtTipo control.
+        /// btnMostrarCalendarioIngreso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipo;
+        protected global::System.Web.UI.WebControls.Button btnMostrarCalendarioIngreso;
 
         /// <summary>
-        /// txtDescrip control.
+        /// calFecIng control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescrip;
+        protected global::System.Web.UI.WebControls.Calendar calFecIng;
 
         /// <summary>
-        /// txtPrecio control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
+        protected global::System.Web.UI.WebControls.Label Label5;
+
+        /// <summary>
+        /// txtFechaSalida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaSalida;
+
+        /// <summary>
+        /// btnCalFechaSalida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCalFechaSalida;
+
+        /// <summary>
+        /// calFechaSalida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calFechaSalida;
 
         /// <summary>
         /// btnIngresar control.

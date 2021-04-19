@@ -11,7 +11,8 @@ namespace AppReservasULACIT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Label1.Text = "Bienvenido " + Session["NombreUsuario"].ToString();
+            Label2.Text = "Inicio se sesion: " + Session["InicioSesion"].ToString() + " Fin de sesion " + Session["FinSesion"].ToString();
         }
     }
 }

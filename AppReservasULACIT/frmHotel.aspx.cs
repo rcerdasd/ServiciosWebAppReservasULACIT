@@ -23,41 +23,61 @@ namespace AppReservasULACIT
 
         async protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            if(ValidarInsertar())
+            try
             {
-                Models.Hotel hotelIngresado = new Models.Hotel();
-                Models.Hotel hotel = new Models.Hotel()
+                if (ValidarInsertar())
                 {
-                    HOT_NOMBRE = txtNombre.Text,
-                    HOT_EMAIL = txtEmail.Text,
-                    HOT_DIRECCION = txtDireccion.Text,
-                    HOT_TELEFONO = txtTelefono.Text,
-                    HOT_CATEGORIA = ddlCategoria.SelectedValue
-                };
+                    Models.Hotel hotelIngresado = new Models.Hotel();
+                    Models.Hotel hotel = new Models.Hotel()
+                    {
+                        HOT_NOMBRE = txtNombre.Text,
+                        HOT_EMAIL = txtEmail.Text,
+                        HOT_DIRECCION = txtDireccion.Text,
+                        HOT_TELEFONO = txtTelefono.Text,
+                        HOT_CATEGORIA = ddlCategoria.SelectedValue
+                    };
 
-                hotelIngresado = await hotelManager.Ingresar(hotel, Session["TokenUsuario"].ToString());
+                    hotelIngresado = await hotelManager.Ingresar(hotel, Session["TokenUsuario"].ToString());
 
-                if(hotelIngresado != null)
-                {
-                    lblResultado.Text = "Hotel ingresado correctamente";
-                    lblResultado.ForeColor = Color.Green;
-                    lblResultado.Visible = true;
-                    InicializarControles();
+                    if (hotelIngresado != null)
+                    {
+                        lblResultado.Text = "Hotel ingresado correctamente";
+                        lblResultado.ForeColor = Color.Green;
+                        lblResultado.Visible = true;
+                        InicializarControles();
+                    }
+                    else
+                    {
+                        lblResultado.Text = "Error al crear hotel";
+                        lblResultado.ForeColor = Color.Maroon;
+                        lblResultado.Visible = true;
+                    }
                 }
-                else
-                {
-                    lblResultado.Text = "Error al crear hotel";
-                    lblResultado.ForeColor = Color.Maroon;
-                    lblResultado.Visible = true;
-                }
+            }
+            catch (Exception err)
+            {
+
+                lblResultado.Text = "Hubo un error al ingresar. Detalle: " + err.Message;
+                lblResultado.ForeColor = Color.Maroon;
+                lblResultado.Visible = true;
             }
         }
 
         async private void InicializarControles()
         {
-            hoteles = await hotelManager.ObtenerHoteles(Session["TokenUsuario"].ToString());
-            gvHoteles.DataSource = hoteles.ToList();
-            gvHoteles.DataBind();
+            try
+            {
+                hoteles = await hotelManager.ObtenerHoteles(Session["TokenUsuario"].ToString());
+                gvHoteles.DataSource = hoteles.ToList();
+                gvHoteles.DataBind();
+            }
+            catch (Exception e)
+            {
+
+                lblResultado.Text = "Hubo un error. Detalle: "+e.Message;
+                lblResultado.ForeColor = Color.Maroon;
+                lblResultado.Visible = true;
+            }
 
         }
 
@@ -113,63 +133,94 @@ namespace AppReservasULACIT
 
         async protected void btnModificar_Click(object sender, EventArgs e)
         {
-            if (ValidarInsertar() && (!string.IsNullOrEmpty(txtCodigo.Text)))
+            try
             {
-                if (ValidarInsertar())
+                if (ValidarInsertar() && (!string.IsNullOrEmpty(txtCodigo.Text)))
                 {
-                    Models.Hotel hotelModificado = new Models.Hotel();
-                    Models.Hotel hotel = new Models.Hotel()
+                    if (ValidarInsertar())
                     {
-                        HOT_CODIGO = Convert.ToInt32(txtCodigo.Text),
-                        HOT_NOMBRE = txtNombre.Text,
-                        HOT_EMAIL = txtEmail.Text,
-                        HOT_DIRECCION = txtDireccion.Text,
-                        HOT_TELEFONO = txtTelefono.Text,
-                        HOT_CATEGORIA = ddlCategoria.SelectedValue
-                    };
+                        Models.Hotel hotelModificado = new Models.Hotel();
+                        Models.Hotel hotel = new Models.Hotel()
+                        {
+                            HOT_CODIGO = Convert.ToInt32(txtCodigo.Text),
+                            HOT_NOMBRE = txtNombre.Text,
+                            HOT_EMAIL = txtEmail.Text,
+                            HOT_DIRECCION = txtDireccion.Text,
+                            HOT_TELEFONO = txtTelefono.Text,
+                            HOT_CATEGORIA = ddlCategoria.SelectedValue
+                        };
 
-                    hotelModificado = await hotelManager.Actualizar(hotel, Session["TokenUsuario"].ToString());
+                        hotelModificado = await hotelManager.Actualizar(hotel, Session["TokenUsuario"].ToString());
 
-                    if (hotelModificado != null)
+                        if (hotelModificado != null)
+                        {
+                            lblResultado.Text = "Hotel modificado correctamente";
+                            lblResultado.ForeColor = Color.Green;
+                            lblResultado.Visible = true;
+                            InicializarControles();
+                        }
+                        else
+                        {
+                            lblResultado.Text = "Error al modificar hotel";
+                            lblResultado.ForeColor = Color.Maroon;
+                            lblResultado.Visible = true;
+                        }
+                    }
+
+
+                }
+                else
+                {
+                    lblResultado.Text = "Debe ingresar todos los datos";
+                    lblResultado.ForeColor = Color.Maroon;
+                    lblResultado.Visible = true;
+                }
+            }
+            catch (Exception er)
+            {
+
+                lblResultado.Text = "Hubo un error. Detalle: " + er.Message;
+                lblResultado.ForeColor = Color.Maroon;
+                lblResultado.Visible = true;
+            }
+        }
+
+
+
+        async protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtCodigo.Text))
+                {
+                    string codigoEliminado = string.Empty;
+                    codigoEliminado = await hotelManager.Eliminar(txtCodigo.Text, Session["TokenUsuario"].ToString());
+                    if (!string.IsNullOrEmpty(codigoEliminado))
                     {
-                        lblResultado.Text = "Hotel modificado correctamente";
+                        lblResultado.Text = "Hotel eliminado con exito";
                         lblResultado.ForeColor = Color.Green;
                         lblResultado.Visible = true;
                         InicializarControles();
                     }
                     else
                     {
-                        lblResultado.Text = "Error al modificar hotel";
+                        lblResultado.Text = "Error al elminar el hotel";
                         lblResultado.ForeColor = Color.Maroon;
                         lblResultado.Visible = true;
                     }
                 }
-
-            }
-            else
-            {
-                lblResultado.Text = "Debe ingresar todos los datos";
-                lblResultado.ForeColor = Color.Maroon;
-                lblResultado.Visible = true;
-            }
-        }
-
-        async protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtCodigo.Text))
-            {
-                string codigoEliminado = string.Empty;
-                codigoEliminado = await hotelManager.Eliminar(txtCodigo.Text, Session["TokenUsuario"].ToString());
-                if (!string.IsNullOrEmpty(codigoEliminado))
+                else
                 {
-                    lblResultado.Text = "Hotel eliminado con exito";
-                    lblResultado.ForeColor = Color.Green;
+                    lblResultado.Text = "Debe ingresar el codigo";
+                    lblResultado.ForeColor = Color.Maroon;
                     lblResultado.Visible = true;
                 }
             }
-            else
+            catch (Exception error)
             {
-                lblResultado.Text = "Eror al elminar el hotel";
+
+
+                lblResultado.Text = "Hubo un error. Detalle: " + error.Message;
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
             }

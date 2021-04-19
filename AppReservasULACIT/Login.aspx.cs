@@ -29,7 +29,11 @@ namespace AppReservasULACIT
                 var jwtHandler = new JwtSecurityTokenHandler();
                 jwtSecurityToken = jwtHandler.ReadJwtToken(usuario.CadenaToken);
                 Session["IdUsuario"] = usuario.USU_IDENTIFICACION;
+                Session["NombreUsuario"] = usuario.USU_NOMBRE;
                 Session["TokenUsuario"] = usuario.CadenaToken;
+                Session["InicioSesion"] = jwtSecurityToken.ValidFrom.ToString("dd/MM/yyyy HH:mm:ss");
+                Session["FinSesion"] = jwtSecurityToken.ValidTo.ToString("dd/MM/yyyy HH:mm:ss");
+
                 FormsAuthentication.RedirectFromLoginPage(txtIdentificacion.Text, true);
 
             }

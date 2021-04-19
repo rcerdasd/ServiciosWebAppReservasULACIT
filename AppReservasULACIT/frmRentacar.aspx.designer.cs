@@ -11,7 +11,7 @@ namespace AppReservasULACIT
 {
 
 
-    public partial class frmHabitacion
+    public partial class frmRentacar
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// gvHabitaciones control.
+        /// gvRentacars control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvHabitaciones;
+        protected global::System.Web.UI.WebControls.GridView gvRentacars;
 
         /// <summary>
         /// Label2 control.
@@ -42,13 +42,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// txtCodigoHabitacion control.
+        /// txtCodigo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoHabitacion;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
 
         /// <summary>
         /// Label3 control.
@@ -60,31 +60,31 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// txtCodigoHotel control.
+        /// txtNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoHotel;
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
-        /// Numero control.
+        /// lblPais control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Numero;
+        protected global::System.Web.UI.WebControls.Label lblPais;
 
         /// <summary>
-        /// txtNumHab control.
+        /// txtPais control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumHab;
+        protected global::System.Web.UI.WebControls.TextBox txtPais;
 
         /// <summary>
         /// Label4 control.
@@ -96,40 +96,31 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// txtCapacidad control.
+        /// txtTelefono control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCapacidad;
+        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
 
         /// <summary>
-        /// txtTipo control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipo;
+        protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// txtDescrip control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescrip;
-
-        /// <summary>
-        /// txtPrecio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
         /// btnIngresar control.
