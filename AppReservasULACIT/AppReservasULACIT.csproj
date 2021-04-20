@@ -138,6 +138,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AerolineaManager.cs" />
     <Compile Include="Controllers\HabitacionManager.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelManager.cs" />
@@ -151,6 +152,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAerolinea.aspx.cs">
+      <DependentUpon>frmAerolinea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAerolinea.aspx.designer.cs">
+      <DependentUpon>frmAerolinea.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmHabitacion.aspx.cs">
       <DependentUpon>frmHabitacion.aspx</DependentUpon>
@@ -235,6 +243,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="frmAerolinea.aspx" />
     <Content Include="frmHabitacion.aspx" />
     <Content Include="frmRentacar.aspx" />
     <Content Include="frmReserva.aspx" />
