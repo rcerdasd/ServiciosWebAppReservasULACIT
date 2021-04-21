@@ -294,3 +294,4 @@ C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\obj\Debug\AppReservasULA
 C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\obj\Debug\AppReservasULACIT.csproj.CopyComplete
 C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\obj\Debug\AppReservasULACIT.dll
 C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\obj\Debug\AppReservasULACIT.pdb
+C:\2021ServiciosWeb\AppReservasULACIT\AppReservasULACIT\obj\Debug\AppReservasULACIT.csprojAssemblyReference.cache
