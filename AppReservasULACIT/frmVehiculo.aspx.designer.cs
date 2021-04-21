@@ -60,13 +60,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// txtRentacarCod control.
+        /// ddlRentacars control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRentacarCod;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRentacars;
 
         /// <summary>
         /// lblPasajeros control.
@@ -114,13 +114,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// txtEstado control.
+        /// rblEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstado;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblEstado;
 
         /// <summary>
         /// Label6 control.

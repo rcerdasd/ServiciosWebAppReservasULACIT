@@ -16,13 +16,23 @@ namespace AppReservasULACIT
         VehiculoManager vehiculoManager = new VehiculoManager();
         IEnumerable<Vehiculo> vehiculos = new ObservableCollection<Vehiculo>();
 
-        async private void InicializarControles()
+        IEnumerable<Rentacar> rentacars = new ObservableCollection<Rentacar>();
+        RentacarManager rentacarManager = new RentacarManager();
+
+
+async private void InicializarControles()
         {
             try
             {
                 vehiculos = await vehiculoManager.ObtenerVehiculos(Session["TokenUsuario"].ToString());
                 gvVehiculos.DataSource = vehiculos.ToList();
                 gvVehiculos.DataBind();
+
+                rentacars = await rentacarManager.ObtenerRentacars(Session["TokenUsuario"].ToString());
+                ddlRentacars.DataSource = rentacars.ToList();
+                ddlRentacars.DataTextField = "REN_NOMBRE";
+                ddlRentacars.DataValueField = "REN_CODIGO";
+                ddlRentacars.DataBind();
             }
             catch (Exception e)
             {
@@ -36,9 +46,9 @@ namespace AppReservasULACIT
 
         private bool ValidarInsertar()
         {
-            if (string.IsNullOrEmpty(txtRentacarCod.Text))
+            if (ddlRentacars.SelectedValue.Equals(null))
             {
-                lblResultado.Text = "Debe ingresar el codigo del rentacar";
+                lblResultado.Text = "Debe seleccionar el rentacar";
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
                 return false;
@@ -72,7 +82,10 @@ namespace AppReservasULACIT
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            InicializarControles();
+            if (!IsPostBack)
+            {
+                InicializarControles();
+            }
         }
 
         protected void gvVehiculos_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -97,10 +110,10 @@ namespace AppReservasULACIT
                     Vehiculo vehiculoIngresado = new Vehiculo();
                     Vehiculo vehiculo = new Vehiculo()
                     {
-                        REN_CODIGO = Convert.ToInt32(txtRentacarCod.Text.Trim()),
+                        REN_CODIGO = Convert.ToInt32(ddlRentacars.SelectedValue),
                         VEH_CANT_PASAJEROS = Convert.ToInt32(txtPasajeros.Text.Trim()),
                         VEH_MODELO = txtModelo.Text,
-                        VEH_ESTADO = "a",
+                        VEH_ESTADO = rblEstado.SelectedValue,
                         VEH_DESCRIPCION = txtDescripcion.Text
 
                     };
@@ -140,10 +153,10 @@ namespace AppReservasULACIT
                     Vehiculo vehiculo = new Vehiculo()
                     {
                         VEH_CODIGO = Convert.ToInt32(txtCodigo.Text.Trim()),
-                        REN_CODIGO = Convert.ToInt32(txtRentacarCod.Text.Trim()),
+                        REN_CODIGO = Convert.ToInt32(ddlRentacars.SelectedValue),
                         VEH_CANT_PASAJEROS = Convert.ToInt32(txtPasajeros.Text.Trim()),
                         VEH_MODELO = txtModelo.Text,
-                        VEH_ESTADO = txtEstado.Text,
+                        VEH_ESTADO = rblEstado.SelectedValue,
                         VEH_DESCRIPCION = txtDescripcion.Text
 
                     };

@@ -44,7 +44,7 @@
                     <asp:Label ID="Label3" runat="server" Text="Codigo rentacar"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtRentacarCod" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlRentacars" runat="server"></asp:DropDownList>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -70,7 +70,11 @@
                 <td class="auto-style1">
                     <asp:Label ID="Label5" runat="server" Text="Estado"></asp:Label></td>
                 <td>
-                    <asp:TextBox ID="txtEstado" runat="server"></asp:TextBox>
+                    <asp:RadioButtonList ID="rblEstado" runat="server">
+                        <asp:ListItem Value="a">Activo</asp:ListItem>
+                        <asp:ListItem Value="i">Inactivo</asp:ListItem>
+                        
+                    </asp:RadioButtonList>
                 </td>
                 <td>&nbsp;</td>
             </tr>
