@@ -10,22 +10,28 @@ using System.Web.UI.WebControls;
 
 namespace AppReservasULACIT
 {
-    public partial class frmAerolinea : System.Web.UI.Page
+    public partial class frmAvion : System.Web.UI.Page
     {
-        IEnumerable<Models.Aerolinea> aerolineas = new ObservableCollection<Models.Aerolinea>();
         AerolineaManager aerolineaManager = new AerolineaManager();
-        async protected void Page_Load(object sender, EventArgs e)
+        IEnumerable<Models.Aerolinea> aerolineas = new ObservableCollection<Models.Aerolinea>();
+        IEnumerable<Models.Avion> aviones = new ObservableCollection<Models.Avion>();
+        AvionManager avionManager = new AvionManager();
+        protected void Page_Load(object sender, EventArgs e)
         {
-            InicializarControles();
-        }
+            if (!IsPostBack)
+            {
+                InicializarControles();
+            }
 
-        async private void InicializarControles()
+        }
+        async void InicializarControles()
         {
+
             try
             {
-                aerolineas = await aerolineaManager.ObtenerAerolineas(Session["TokenUsuario"].ToString());
-                gvAerolineas.DataSource = aerolineas.ToList();
-                gvAerolineas.DataBind();
+                aviones = await avionManager.ObtenerAviones(Session["TokenUsuario"].ToString());
+                gvAviones.DataSource = aviones.ToList();
+                gvAviones.DataBind();
             }
             catch (Exception e)
             {
@@ -34,17 +40,27 @@ namespace AppReservasULACIT
                 lblResultado.Visible = true;
             }
 
+            aerolineas = await aerolineaManager.ObtenerAerolineas(Session["TokenUsuario"].ToString());
+
+            ddlAerolinea.DataSource = aerolineas.ToList();
+            ddlAerolinea.DataTextField = "AER_NOMBRE";
+            ddlAerolinea.DataValueField = "AER_CODIGO";
+            ddlAerolinea.DataBind();
+
+            txtAero.Text = ddlAerolinea.SelectedValue;
+
         }
 
-        protected void gvAerolineas_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gvAviones_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Header)
             {
-                e.Row.Cells[0].Text = "Codigo";
-                e.Row.Cells[1].Text = "Nombre";
-                e.Row.Cells[2].Text = "País";
-                e.Row.Cells[3].Text = "Telefono";
-                e.Row.Cells[4].Text = "Email";
+                e.Row.Cells[0].Text = "Código de avión";
+                e.Row.Cells[1].Text = "Código de aerolínea";
+                e.Row.Cells[2].Text = "Cantidad de asientos";
+                e.Row.Cells[3].Text = "Modelo";
+                e.Row.Cells[4].Text = "Estado";
+                e.Row.Cells[5].Text = "Descripción";
             }
         }
 
@@ -54,27 +70,28 @@ namespace AppReservasULACIT
             {
                 if (ValidarInsertar())
                 {
-                    Models.Aerolinea aerolineaIngresada = new Models.Aerolinea();
-                    Models.Aerolinea aerolinea = new Models.Aerolinea()
+                    Models.Avion avionIngresado = new Models.Avion();
+                    Models.Avion avion = new Models.Avion()
                     {
-                        AER_NOMBRE = txtNombre.Text,
-                        AER_EMAIL = txtEmail.Text,
-                        AER_PAIS = txtPais.Text,
-                        AER_TELEFONO = txtTelefono.Text
+                        AER_CODIGO = Convert.ToInt32(ddlAerolinea.SelectedValue),
+                        AVI_CANT_ASIENTOS = Convert.ToInt32(txtCantAsi.Text),
+                        AVI_DESCRIPCION = txtDesc.Text,
+                        AVI_ESTADO = ddlEstado.SelectedValue,
+                        AVI_MODELO = txtModelo.Text
                     };
 
-                    aerolineaIngresada = await aerolineaManager.Ingresar(aerolinea, Session["TokenUsuario"].ToString());
+                    avionIngresado = await avionManager.Ingresar(avion, Session["TokenUsuario"].ToString());
 
-                    if (aerolineaIngresada != null)
+                    if (avionIngresado != null)
                     {
-                        lblResultado.Text = "Aerolínea ingresada orrectamente";
+                        lblResultado.Text = "Avión ingresado correctamente";
                         lblResultado.ForeColor = Color.Green;
                         lblResultado.Visible = true;
                         InicializarControles();
                     }
                     else
                     {
-                        lblResultado.Text = "Error al crear aerolínea";
+                        lblResultado.Text = "Error al crear avión";
                         lblResultado.ForeColor = Color.Maroon;
                         lblResultado.Visible = true;
                     }
@@ -82,7 +99,7 @@ namespace AppReservasULACIT
             }
             catch (Exception exc)
             {
-                lblResultado.Text = "Hubo un error al ingresar la aerolínea. Detalle: " + exc.Message;
+                lblResultado.Text = "Hubo un error al ingresar el avión. Detalle: " + exc.Message;
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
             }
@@ -90,37 +107,30 @@ namespace AppReservasULACIT
 
         private bool ValidarInsertar()
         {
-            if (string.IsNullOrEmpty(txtNombre.Text))
+            if (string.IsNullOrEmpty(txtCantAsi.Text))
             {
-                lblResultado.Text = "Debe ingresar el nombre";
+                lblResultado.Text = "Debe ingresar la cantidad de asientos";
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
                 return false;
             }
 
-            if (string.IsNullOrEmpty(txtEmail.Text))
+            if (string.IsNullOrEmpty(txtModelo.Text))
             {
-                lblResultado.Text = "Debe ingresar el email";
+                lblResultado.Text = "Debe ingresar el modelo";
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
                 return false;
             }
 
-            if (string.IsNullOrEmpty(txtTelefono.Text))
+            if (string.IsNullOrEmpty(txtDesc.Text))
             {
-                lblResultado.Text = "Debe ingresar el teléfono";
+                lblResultado.Text = "Debe ingresar la descripción";
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
                 return false;
             }
 
-            if (string.IsNullOrEmpty(txtPais.Text))
-            {
-                lblResultado.Text = "Debe ingresar el país";
-                lblResultado.ForeColor = Color.Maroon;
-                lblResultado.Visible = true;
-                return false;
-            }
 
             return true;
         }
@@ -131,28 +141,30 @@ namespace AppReservasULACIT
             {
                 if (ValidarInsertar() && (!string.IsNullOrEmpty(txtCodigo.Text)))
                 {
-                    Models.Aerolinea aerolineaModificada = new Models.Aerolinea();
-                    Models.Aerolinea aerolinea = new Models.Aerolinea()
+                    Models.Avion avionModificado = new Models.Avion();
+                    Models.Avion avion = new Models.Avion()
                     {
-                        AER_CODIGO = Convert.ToInt32(txtCodigo.Text),
-                        AER_NOMBRE = txtNombre.Text,
-                        AER_EMAIL = txtEmail.Text,
-                        AER_PAIS = txtPais.Text,
-                        AER_TELEFONO = txtTelefono.Text
+                        AVI_CODIGO = Convert.ToInt32(txtCodigo.Text),
+                        AER_CODIGO = Convert.ToInt32(ddlAerolinea.SelectedValue),
+                        AVI_CANT_ASIENTOS = Convert.ToInt32(txtCantAsi.Text),
+                        AVI_DESCRIPCION = txtDesc.Text,
+                        AVI_ESTADO = ddlEstado.SelectedValue,
+                        AVI_MODELO = txtModelo.Text
+
                     };
 
-                    aerolineaModificada = await aerolineaManager.Actualizar(aerolinea, Session["TokenUsuario"].ToString());
+                    avionModificado = await avionManager.Actualizar(avion, Session["TokenUsuario"].ToString());
 
-                    if (aerolineaModificada != null)
+                    if (avionModificado != null)
                     {
-                        lblResultado.Text = "Aerolínea actualizada correctamente";
+                        lblResultado.Text = "Avión actualizado correctamente";
                         lblResultado.ForeColor = Color.Green;
                         lblResultado.Visible = true;
                         InicializarControles();
                     }
                     else
                     {
-                        lblResultado.Text = "Error al actualizar aerolínea";
+                        lblResultado.Text = "Error al actualizar avión";
                         lblResultado.ForeColor = Color.Maroon;
                         lblResultado.Visible = true;
                     }
@@ -164,12 +176,14 @@ namespace AppReservasULACIT
                     lblResultado.Visible = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception exce)
             {
-                lblResultado.Text = "Hubo un error al actualizar la aerolínea. Detalle: " + ex.Message;
+
+                lblResultado.Text = "Hubo un error al actualizar el avión. Detalle: " + exce.Message;
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
             }
+
         }
 
         async protected void btnEliminar_Click(object sender, EventArgs e)
@@ -179,18 +193,18 @@ namespace AppReservasULACIT
                 if (!string.IsNullOrEmpty(txtCodigo.Text))
                 {
                     string codigoEliminado = string.Empty;
-                    codigoEliminado = await aerolineaManager.Eliminar(txtCodigo.Text, Session["TokenUsuario"].ToString());
+                    codigoEliminado = await avionManager.Eliminar(txtCodigo.Text, Session["TokenUsuario"].ToString());
 
                     if (!string.IsNullOrEmpty(codigoEliminado))
                     {
                         InicializarControles();
-                        lblResultado.Text = "Aerolínea eliminada con exito.";
+                        lblResultado.Text = "Avión eliminado con éxito.";
                         lblResultado.ForeColor = Color.Green;
                         lblResultado.Visible = true;
                     }
                     else
                     {
-                        lblResultado.Text = "Hubo un error al eliminar la aerolínea.";
+                        lblResultado.Text = "Hubo un error al eliminar el avión.";
                         lblResultado.ForeColor = Color.Maroon;
                         lblResultado.Visible = true;
                     }
@@ -203,13 +217,18 @@ namespace AppReservasULACIT
                     lblResultado.Visible = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception excep)
             {
 
-                lblResultado.Text = "Hubo un error al eliminar la aerolínea. Detalle: " + ex.Message;
+                lblResultado.Text = "Hubo un error al eliminar el avión. Detalle: " + excep.Message;
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
             }
+        }
+
+        protected void ddlAerolinea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtAero.Text = ddlAerolinea.SelectedValue;
         }
     }
 }

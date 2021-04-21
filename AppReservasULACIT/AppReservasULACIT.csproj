@@ -138,7 +138,23 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AsientoAvionManager.cs" />
+    <Compile Include="Controllers\AvionManager.cs" />
     <Compile Include="Controllers\AerolineaManager.cs" />
+    <Compile Include="frmAsientoAvion.aspx.cs">
+      <DependentUpon>frmAsientoAvion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAsientoAvion.aspx.designer.cs">
+      <DependentUpon>frmAsientoAvion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAvion.aspx.cs">
+      <DependentUpon>frmAvion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAvion.aspx.designer.cs">
+      <DependentUpon>frmAvion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HabitacionManager.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelManager.cs" />
@@ -240,6 +256,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="frmAsientoAvion.aspx" />
+    <Content Include="frmAvion.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
