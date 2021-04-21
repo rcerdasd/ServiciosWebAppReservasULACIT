@@ -41,10 +41,10 @@
             </tr>
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="Label3" runat="server" Text="Codigo vehiculo"></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text="Codigo vehiculo"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtCodVehiculo" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlVehiculos" runat="server"></asp:DropDownList>
                 </td>
                 <td>&nbsp;</td>
             </tr>

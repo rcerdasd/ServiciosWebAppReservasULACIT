@@ -15,10 +15,28 @@ namespace AppReservasULACIT
         IEnumerable<Models.ReservaVehiculo> reservasVehiculos = new ObservableCollection<Models.ReservaVehiculo>();
         ReservaVehiculoManager reservaVehiculoManager = new ReservaVehiculoManager();
 
+        IEnumerable<Models.Usuario> usuarios = new ObservableCollection<Models.Usuario>();
+        UsuarioManager usuarioManager = new UsuarioManager();
+
+        IEnumerable<Models.PaqueteVehiculo> paquetes = new ObservableCollection<Models.PaqueteVehiculo>();
+        PaqueteVehiculoManager paqueteManager = new PaqueteVehiculoManager();
+
         async private void InicializarControles()
         {
             try
             {
+                usuarios = await usuarioManager.ObtenerUsuarios(Session["TokenUsuario"].ToString());
+                ddlUsuarios.DataSource = usuarios.ToList();
+                ddlUsuarios.DataTextField = "USU_NOMBRE";
+                ddlUsuarios.DataValueField = "USU_CODIGO";
+                ddlUsuarios.DataBind();
+
+                paquetes = await paqueteManager.ObtenerPaquetesVehiculos(Session["TokenUsuario"].ToString());
+                ddlPaquete.DataSource = paquetes.ToList();
+                ddlPaquete.DataTextField = "PAQ_DESCRIPCION";
+                ddlPaquete.DataValueField = "PAQ_VEH_CODIGO";
+                ddlPaquete.DataBind();
+
                 reservasVehiculos = await reservaVehiculoManager.ObtenerReservasVehiculos(Session["TokenUsuario"].ToString());
                 gvReservaVehiculos.DataSource = reservasVehiculos.ToList();
                 gvReservaVehiculos.DataBind();
@@ -35,7 +53,10 @@ namespace AppReservasULACIT
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            InicializarControles();
+            if (!IsPostBack)
+            {
+                InicializarControles();
+            }
         }
 
         private bool validadFechas()
@@ -88,17 +109,17 @@ namespace AppReservasULACIT
         private bool ValidarInsertar()
         {
 
-            if (string.IsNullOrEmpty(txtCodUsuario.Text))
+            if (string.IsNullOrEmpty(ddlUsuarios.SelectedValue))
             {
-                lblResultado.Text = "Debe ingresar el codigo del usuario";
+                lblResultado.Text = "Debe seleccionar el codigo del usuario";
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
                 return false;
             }
 
-            if (string.IsNullOrEmpty(txtCodPaquete.Text))
+            if (string.IsNullOrEmpty(ddlPaquete.SelectedValue))
             {
-                lblResultado.Text = "Debe ingresar el codigo del paquete";
+                lblResultado.Text = "Debe seleccionar el codigo del paquete";
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
                 return false;
@@ -156,8 +177,8 @@ namespace AppReservasULACIT
                         Models.ReservaVehiculo reservaVehiculoIngresada = new Models.ReservaVehiculo();
                         Models.ReservaVehiculo reservaVehiculo = new Models.ReservaVehiculo()
                         {
-                            USU_CODIGO = Convert.ToInt32(txtCodUsuario.Text),
-                            PAQ_VEH_CODIGO = Convert.ToInt32(txtCodPaquete.Text),
+                            USU_CODIGO = Convert.ToInt32(ddlUsuarios.SelectedValue),
+                            PAQ_VEH_CODIGO = Convert.ToInt32(ddlPaquete.SelectedValue),
                             RES_VEH_FEC_SALIDA = calFecSalida.SelectedDate,
                             RES_VEH_FEC_REGRESO = calFechaRegreso.SelectedDate
                         };
@@ -201,8 +222,8 @@ namespace AppReservasULACIT
                         Models.ReservaVehiculo reservaVehiculo = new Models.ReservaVehiculo()
                         {
                             RES_VEH_CODIGO = Convert.ToInt32(txtResVehCodigo.Text),
-                            USU_CODIGO = Convert.ToInt32(txtCodUsuario.Text),
-                            PAQ_VEH_CODIGO = Convert.ToInt32(txtCodPaquete.Text),
+                            USU_CODIGO = Convert.ToInt32(ddlUsuarios.SelectedValue),
+                            PAQ_VEH_CODIGO = Convert.ToInt32(ddlPaquete.SelectedValue),
                             RES_VEH_FEC_SALIDA = calFecSalida.SelectedDate,
                             RES_VEH_FEC_REGRESO = calFechaRegreso.SelectedDate
                         };

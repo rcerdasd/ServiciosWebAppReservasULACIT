@@ -60,31 +60,31 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// txtCodUsuario control.
+        /// ddlUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodUsuario;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUsuarios;
 
         /// <summary>
-        /// lblCodPaqVeh control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCodPaqVeh;
+        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// txtCodPaquete control.
+        /// ddlPaquete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodPaquete;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPaquete;
 
         /// <summary>
         /// Label4 control.

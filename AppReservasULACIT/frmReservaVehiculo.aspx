@@ -44,16 +44,16 @@
                     <asp:Label ID="Label3" runat="server" Text="Codigo usuario"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtCodUsuario" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlUsuarios" runat="server"></asp:DropDownList>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="lblCodPaqVeh" runat="server" Text="Codigo paquete vehiculo"></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text="Codigo paquete"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtCodPaquete" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlPaquete" runat="server"></asp:DropDownList>
                 </td>
                 <td>&nbsp;</td>
             </tr>

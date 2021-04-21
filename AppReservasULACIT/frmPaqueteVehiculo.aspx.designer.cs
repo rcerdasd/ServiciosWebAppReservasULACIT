@@ -51,22 +51,22 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.TextBox txtPaqVehCodigo;
 
         /// <summary>
-        /// Label3 control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// txtCodVehiculo control.
+        /// ddlVehiculos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodVehiculo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlVehiculos;
 
         /// <summary>
         /// lblCodPaqVeh control.

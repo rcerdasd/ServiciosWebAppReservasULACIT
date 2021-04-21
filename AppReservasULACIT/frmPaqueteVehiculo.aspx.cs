@@ -15,10 +15,19 @@ namespace AppReservasULACIT
         IEnumerable<Models.PaqueteVehiculo> paquetesVehiculos = new ObservableCollection<Models.PaqueteVehiculo>();
         PaqueteVehiculoManager paqueteVehiculoManager = new PaqueteVehiculoManager();
 
+        IEnumerable<Models.Vehiculo> vehiculos = new ObservableCollection<Models.Vehiculo>();
+        VehiculoManager vehiculoManager = new VehiculoManager();
+
         async private void InicializarControles()
         {
             try
             {
+                vehiculos = await vehiculoManager.ObtenerVehiculos(Session["TokenUsuario"].ToString());
+                ddlVehiculos.DataSource = vehiculos.ToList();
+                ddlVehiculos.DataTextField = "VEH_MODELO";
+                ddlVehiculos.DataValueField = "VEH_CODIGO";
+                ddlVehiculos.DataBind();
+
                 paquetesVehiculos = await paqueteVehiculoManager.ObtenerPaquetesVehiculos(Session["TokenUsuario"].ToString());
                 gvPaquetesVehiculos.DataSource = paquetesVehiculos.ToList();
                 gvPaquetesVehiculos.DataBind();
@@ -35,7 +44,10 @@ namespace AppReservasULACIT
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            InicializarControles();
+            if (!IsPostBack)
+            {
+                InicializarControles();
+            }
         }
 
         protected void gvPaquetesVehiculos_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -53,9 +65,9 @@ namespace AppReservasULACIT
         private bool ValidarInsertar()
         {
 
-            if (string.IsNullOrEmpty(txtCodVehiculo.Text))
+            if (string.IsNullOrEmpty(ddlVehiculos.SelectedValue))
             {
-                lblResultado.Text = "Debe ingresar el codigo del vehiculo";
+                lblResultado.Text = "Debe seleccionar el codigo del vehiculo";
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
                 return false;
@@ -97,7 +109,7 @@ namespace AppReservasULACIT
                     Models.PaqueteVehiculo paqueteVehiculoIngresado = new Models.PaqueteVehiculo();
                     Models.PaqueteVehiculo paqueteVehiculo = new Models.PaqueteVehiculo()
                     {
-                        VEH_CODIGO = Convert.ToInt32(txtCodVehiculo.Text),
+                        VEH_CODIGO = Convert.ToInt32(ddlVehiculos.SelectedValue),
                         PAQ_SEGURO = txtPaqSeguro.Text,
                         PAQ_BICICLETA = txtPaqBicicleta.Text,
                         PAQ_DESCRIPCION = txtPaqDescripcion.Text
@@ -122,7 +134,6 @@ namespace AppReservasULACIT
             }
             catch (Exception err)
             {
-
                 lblResultado.Text = "Hubo un error al ingresar el paquete de vehiculo. Detalle: " + err.Message;
                 lblResultado.ForeColor = Color.Maroon;
                 lblResultado.Visible = true;
@@ -141,7 +152,7 @@ namespace AppReservasULACIT
                         Models.PaqueteVehiculo paqueteVehiculo = new Models.PaqueteVehiculo()
                         {
                             PAQ_VEH_CODIGO = Convert.ToInt32(txtPaqVehCodigo.Text),
-                            VEH_CODIGO = Convert.ToInt32(txtCodVehiculo.Text),
+                            VEH_CODIGO = Convert.ToInt32(ddlVehiculos.SelectedValue),
                             PAQ_SEGURO = txtPaqSeguro.Text,
                             PAQ_BICICLETA = txtPaqBicicleta.Text,
                             PAQ_DESCRIPCION = txtPaqDescripcion.Text
@@ -171,7 +182,6 @@ namespace AppReservasULACIT
                     lblResultado.ForeColor = Color.Maroon;
                     lblResultado.Visible = true;
                 }
-
             }
             else
             {
@@ -202,7 +212,6 @@ namespace AppReservasULACIT
                         lblResultado.ForeColor = Color.Maroon;
                         lblResultado.Visible = true;
                     }
-
                 }
                 else
                 {
