@@ -141,8 +141,10 @@
     <Compile Include="Controllers\HabitacionManager.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelManager.cs" />
+    <Compile Include="Controllers\PaqueteVehiculoManager.cs" />
     <Compile Include="Controllers\RentacarManager.cs" />
     <Compile Include="Controllers\ReservaManager.cs" />
+    <Compile Include="Controllers\ReservaVehiculoManager.cs" />
     <Compile Include="Controllers\UsuarioManager.cs" />
     <Compile Include="Controllers\VehiculoManager.cs" />
     <Compile Include="Default.aspx.cs">
@@ -159,6 +161,13 @@
     <Compile Include="frmHabitacion.aspx.designer.cs">
       <DependentUpon>frmHabitacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmPaqueteVehiculo.aspx.cs">
+      <DependentUpon>frmPaqueteVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPaqueteVehiculo.aspx.designer.cs">
+      <DependentUpon>frmPaqueteVehiculo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmRentacar.aspx.cs">
       <DependentUpon>frmRentacar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -172,6 +181,13 @@
     </Compile>
     <Compile Include="frmReserva.aspx.designer.cs">
       <DependentUpon>frmReserva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReservaVehiculo.aspx.cs">
+      <DependentUpon>frmReservaVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReservaVehiculo.aspx.designer.cs">
+      <DependentUpon>frmReservaVehiculo.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmVehiculo.aspx.cs">
       <DependentUpon>frmVehiculo.aspx</DependentUpon>
@@ -236,8 +252,10 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="frmHabitacion.aspx" />
+    <Content Include="frmPaqueteVehiculo.aspx" />
     <Content Include="frmRentacar.aspx" />
     <Content Include="frmReserva.aspx" />
+    <Content Include="frmReservaVehiculo.aspx" />
     <Content Include="frmVehiculo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
