@@ -33,6 +33,9 @@
                         <li><a runat="server" href="frmReserva.aspx">Reserva</a></li>
                         <li><a runat="server" href="frmRentacar.aspx">Rentacar</a></li>
                         <li><a runat="server" href="frmVehiculo.aspx">Vehiculo</a></li>
+                         <li><a runat="server" href="frmAerolinea.aspx">Aerolínea</a></li>
+                        <li><a runat="server" href="frmAvion.aspx">Avión</a></li>
+                        <li><a runat="server" href="frmAsientoAvion.aspx">Asiento avión</a></li>
                     </ul>
                 </div>
             </div>
