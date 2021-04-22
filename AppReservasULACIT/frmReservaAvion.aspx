@@ -7,12 +7,10 @@
         .auto-style1 {
             width: 156px;
         }
-
         .auto-style2 {
             width: 156px;
             height: 31px;
         }
-
         .auto-style3 {
             height: 31px;
         }

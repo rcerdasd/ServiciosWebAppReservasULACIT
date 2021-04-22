@@ -171,9 +171,9 @@ namespace AppReservasULACIT
                         {
                             USU_CODIGO = Convert.ToInt32(ddlUsuCodigo.SelectedValue),
                             AVI_CODIGO = Convert.ToInt32(ddlAviCodigo.SelectedValue),
-                            RES_AVI_FEC_VUELO= calFecVuelo.SelectedDate,
-                           RES_AVI_DURACION=Convert.ToDecimal(txtDuracion.Text),
-                           RES_AVI_ESCALA=txtEscala.Text
+                            RES_AVI_FEC_VUELO = calFecVuelo.SelectedDate,
+                            RES_AVI_DURACION = Convert.ToDecimal(txtDuracion.Text),
+                            RES_AVI_ESCALA = txtEscala.Text
                         };
 
                         reservaAvionIngresada = await reservaAvionManager.Ingresar(reservaAvion, Session["TokenUsuario"].ToString());
@@ -219,7 +219,7 @@ namespace AppReservasULACIT
                             AVI_CODIGO = Convert.ToInt32(ddlAviCodigo.SelectedValue),
                             RES_AVI_FEC_VUELO = calFecVuelo.SelectedDate,
                             RES_AVI_DURACION = Convert.ToDecimal(txtDuracion.Text),
-                            RES_AVI_ESCALA=txtEscala.Text
+                            RES_AVI_ESCALA = txtEscala.Text
                         };
 
                         reservaAvionIngresada = await reservaAvionManager.Actualizar(reservaAvion, Session["TokenUsuario"].ToString());

@@ -141,6 +141,8 @@
     <Compile Include="Controllers\AsientoAvionManager.cs" />
     <Compile Include="Controllers\AvionManager.cs" />
     <Compile Include="Controllers\AerolineaManager.cs" />
+    <Compile Include="Controllers\ReservaAvionManager.cs" />
+    <Compile Include="Controllers\TiqueteAvionManager.cs" />
     <Compile Include="frmAsientoAvion.aspx.cs">
       <DependentUpon>frmAsientoAvion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -206,12 +208,26 @@
     <Compile Include="frmReserva.aspx.designer.cs">
       <DependentUpon>frmReserva.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmReservaAvion.aspx.cs">
+      <DependentUpon>frmReservaAvion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReservaAvion.aspx.designer.cs">
+      <DependentUpon>frmReservaAvion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmReservaVehiculo.aspx.cs">
       <DependentUpon>frmReservaVehiculo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="frmReservaVehiculo.aspx.designer.cs">
       <DependentUpon>frmReservaVehiculo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTiqueteAvion.aspx.cs">
+      <DependentUpon>frmTiqueteAvion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTiqueteAvion.aspx.designer.cs">
+      <DependentUpon>frmTiqueteAvion.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmVehiculo.aspx.cs">
       <DependentUpon>frmVehiculo.aspx</DependentUpon>
@@ -282,7 +298,9 @@
     <Content Include="frmPaqueteVehiculo.aspx" />
     <Content Include="frmRentacar.aspx" />
     <Content Include="frmReserva.aspx" />
+    <Content Include="frmReservaAvion.aspx" />
     <Content Include="frmReservaVehiculo.aspx" />
+    <Content Include="frmTiqueteAvion.aspx" />
     <Content Include="frmVehiculo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -321,6 +339,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Habitacion\" />
+    <Folder Include="Views\TiqueteAvion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -38,11 +38,13 @@
                          <li><a runat="server" href="frmAerolinea.aspx">Aerolínea</a></li>
                         <li><a runat="server" href="frmAvion.aspx">Avión</a></li>
                         <li><a runat="server" href="frmAsientoAvion.aspx">Asiento avión</a></li>
+                        <li><a runat="server" href="frmReservaAvion.aspx">Reserva avión</a></li>
+                        <li><a runat="server" href="frmTiqueteAvion.aspx">Tiquete avión</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <br /><br /><br /><br />
+        <br /><br /><br /><br /> <br /><br /><br />
                 <h1><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></h1>
                 <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         <div>

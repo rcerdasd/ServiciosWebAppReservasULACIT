@@ -15,7 +15,7 @@
         <br />
         <br />
         <h1>
-            <asp:Label ID="Label1" runat="server" Text="Reserva Vehiculo"></asp:Label></h1>
+            <asp:Label ID="Label1" runat="server" Text="Paquete vehiculo"></asp:Label></h1>
         <asp:GridView Width="100%" ID="gvPaquetesVehiculos" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="gvPaquetesVehiculos_RowDataBound">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />

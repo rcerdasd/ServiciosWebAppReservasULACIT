@@ -33,7 +33,7 @@ namespace AppReservasULACIT
 
                 reservaAvions = await reservaAvionManager.ObtenerReservasAvion(Session["TokenUsuario"].ToString());
                 ddlReservaAvionCodigo.DataSource = reservaAvions.ToList();
-                ddlReservaAvionCodigo.DataTextField = "RES_AVI_ESCALA";
+                ddlReservaAvionCodigo.DataTextField = "RES_AVI_CODIGO";
                 ddlReservaAvionCodigo.DataValueField = "RES_AVI_CODIGO";
                 ddlReservaAvionCodigo.DataBind();
             }
@@ -114,8 +114,8 @@ namespace AppReservasULACIT
                     {
                         RES_AVI_CODIGO = Convert.ToInt32(ddlReservaAvionCodigo.SelectedValue),
                         TIQ_AVI_ORIGEN = txtTiqueteAvionOrigen.Text,
-                        TIQ_AVI_DESTINO=txtTiqueteAvionDestino.Text,
-                        TIQ_AVI_PRECIO=Convert.ToDecimal(txtTiqueteAvionPrecio.Text.Trim())
+                        TIQ_AVI_DESTINO = txtTiqueteAvionDestino.Text,
+                        TIQ_AVI_PRECIO = Convert.ToDecimal(txtTiqueteAvionPrecio.Text.Trim())
 
                     };
                     tiqueteIngresado = await tiqueteAvionManager.Ingresar(tiquete_Avion, Session["TokenUsuario"].ToString());
@@ -157,7 +157,7 @@ namespace AppReservasULACIT
                         RES_AVI_CODIGO = Convert.ToInt32(ddlReservaAvionCodigo.SelectedValue),
                         TIQ_AVI_ORIGEN = txtTiqueteAvionOrigen.Text,
                         TIQ_AVI_DESTINO = txtTiqueteAvionDestino.Text,
-                        TIQ_AVI_PRECIO=Convert.ToDecimal(txtTiqueteAvionPrecio.Text)
+                        TIQ_AVI_PRECIO = Convert.ToDecimal(txtTiqueteAvionPrecio.Text)
 
                     };
 
