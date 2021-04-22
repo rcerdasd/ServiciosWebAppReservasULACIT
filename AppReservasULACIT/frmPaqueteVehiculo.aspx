@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmVehiculo.aspx.cs" Async="true" Inherits="AppReservasULACIT.frmVehiculo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmPaqueteVehiculo.aspx.cs" Async="true" Inherits="AppReservasULACIT.frmPaqueteVehiculo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -11,12 +11,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="container-md">
+    <div class="container-md">
         <br />
         <br />
         <h1>
-            <asp:Label ID="Label1" runat="server" Text="Vehiculo"></asp:Label></h1>
-        <asp:GridView Width="100%" ID="gvVehiculos" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="gvVehiculos_RowDataBound">
+            <asp:Label ID="Label1" runat="server" Text="Reserva Vehiculo"></asp:Label></h1>
+        <asp:GridView Width="100%" ID="gvPaquetesVehiculos" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="gvPaquetesVehiculos_RowDataBound">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -32,61 +32,50 @@
         <table class="table-success" style="width: 100%;">
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="Label2" runat="server" Text="Codigo vehiculo"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Codigo paquete vehiculo"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPaqVehCodigo" runat="server"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="Label3" runat="server" Text="Codigo rentacar"></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text="Codigo vehiculo"></asp:Label>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlRentacars" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlVehiculos" runat="server"></asp:DropDownList>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="lblPasajeros" runat="server" Text="Cantidad de pasajeros"></asp:Label>
+                    <asp:Label ID="lblCodPaqVeh" runat="server" Text="Paquete seguro"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPasajeros" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPaqSeguro" runat="server"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="Label4" runat="server" Text="Modelo"></asp:Label>
+                    <asp:Label ID="Label4" runat="server" Text="Paquete bicicleta"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtModelo" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPaqBicicleta" runat="server"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="Label5" runat="server" Text="Estado"></asp:Label></td>
+                    <asp:Label ID="Label5" runat="server" Text="Paquete descripcion"></asp:Label>
+                </td>
                 <td>
-                    <asp:RadioButtonList ID="rblEstado" runat="server">
-                        <asp:ListItem Value="a">Activo</asp:ListItem>
-                        <asp:ListItem Value="i">Inactivo</asp:ListItem>
-                        
-                    </asp:RadioButtonList>
+                    <asp:TextBox ID="txtPaqDescripcion" runat="server"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
-                        <tr>
-                <td class="auto-style1">
-                    <asp:Label ID="Label6" runat="server" Text="Descripcion"></asp:Label></td>
-                <td>
-                    <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
+            </table>
         <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" CssClass="btn btn-primary" />
         <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn bg-success" OnClick="btnModificar_Click" />
         <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" OnClick="btnEliminar_Click" />

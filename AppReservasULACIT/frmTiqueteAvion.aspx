@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmVehiculo.aspx.cs" Async="true" Inherits="AppReservasULACIT.frmVehiculo" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmTiqueteAvion.aspx.cs" Inherits="AppReservasULACIT.frmTiqueteAvion" Async="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery-3.4.1.min.js"></script>
@@ -8,15 +7,24 @@
         .auto-style1 {
             width: 156px;
         }
+
+        .auto-style2 {
+            width: 156px;
+            height: 31px;
+        }
+
+        .auto-style3 {
+            height: 31px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="container-md">
+    <div class="Container">
         <br />
         <br />
         <h1>
-            <asp:Label ID="Label1" runat="server" Text="Vehiculo"></asp:Label></h1>
-        <asp:GridView Width="100%" ID="gvVehiculos" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="gvVehiculos_RowDataBound">
+            <asp:Label ID="Label1" runat="server" Text="Mantenimiento de Tiquete de Avion"></asp:Label></h1>
+        <asp:GridView Width="100%" ID="gvTiqueteAvion" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="gvTiqueteAvion_RowDataBound">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -29,68 +37,57 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-        <table class="table-success" style="width: 100%;">
+
+          <table style="width: 100%;">
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="Label2" runat="server" Text="Codigo vehiculo"></asp:Label>
+                    <asp:Label ID="TiqAvionCodigo" runat="server" Text="Codigo Tiquete Avion"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtTiqAvionCodigo" runat="server"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
-            <tr>
+             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="Label3" runat="server" Text="Codigo rentacar"></asp:Label>
+                    <asp:Label ID="ResevaAvion" runat="server" Text="Codigo Reserva Avion"></asp:Label>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlRentacars" runat="server"></asp:DropDownList>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1">
-                    <asp:Label ID="lblPasajeros" runat="server" Text="Cantidad de pasajeros"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtPasajeros" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlReservaAvionCodigo" runat="server"></asp:DropDownList>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="Label4" runat="server" Text="Modelo"></asp:Label>
+                    <asp:Label ID="TiqueteAvionOrigen" runat="server" Text="Origen Tiquete Avion"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtModelo" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtTiqueteAvionOrigen" runat="server"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="Label5" runat="server" Text="Estado"></asp:Label></td>
+                    <asp:Label ID="TiqueteAvionDestino" runat="server" Text="Destino Tiquete Avion "></asp:Label>
+                </td>
                 <td>
-                    <asp:RadioButtonList ID="rblEstado" runat="server">
-                        <asp:ListItem Value="a">Activo</asp:ListItem>
-                        <asp:ListItem Value="i">Inactivo</asp:ListItem>
-                        
-                    </asp:RadioButtonList>
+                    <asp:TextBox ID="txtTiqueteAvionDestino" runat="server"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
-                        <tr>
-                <td class="auto-style1">
-                    <asp:Label ID="Label6" runat="server" Text="Descripcion"></asp:Label></td>
+            <tr>
+                <td class="auto-style1">Precio Tiquete Avion</td>
                 <td>
-                    <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtTiqueteAvionPrecio" runat="server"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
+                     
         </table>
-        <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" CssClass="btn btn-primary" />
+
+           <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" CssClass="btn btn-primary" />
         <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn bg-success" OnClick="btnModificar_Click" />
         <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" OnClick="btnEliminar_Click" />
-        <br />
         <br />
         <asp:Label ID="lblResultado" runat="server" Text="Resultado" Visible="false"></asp:Label>
 

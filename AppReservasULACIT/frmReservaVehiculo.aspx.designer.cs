@@ -11,7 +11,7 @@ namespace AppReservasULACIT
 {
 
 
-    public partial class frmVehiculo
+    public partial class frmReservaVehiculo
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// gvVehiculos control.
+        /// gvReservaVehiculos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvVehiculos;
+        protected global::System.Web.UI.WebControls.GridView gvReservaVehiculos;
 
         /// <summary>
         /// Label2 control.
@@ -42,13 +42,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// txtCodigo control.
+        /// txtResVehCodigo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
+        protected global::System.Web.UI.WebControls.TextBox txtResVehCodigo;
 
         /// <summary>
         /// Label3 control.
@@ -60,67 +60,13 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// ddlRentacars control.
+        /// ddlUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRentacars;
-
-        /// <summary>
-        /// lblPasajeros control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPasajeros;
-
-        /// <summary>
-        /// txtPasajeros control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPasajeros;
-
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-
-        /// <summary>
-        /// txtModelo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModelo;
-
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-
-        /// <summary>
-        /// rblEstado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblEstado;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUsuarios;
 
         /// <summary>
         /// Label6 control.
@@ -132,13 +78,85 @@ namespace AppReservasULACIT
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// txtDescripcion control.
+        /// ddlPaquete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPaquete;
+
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// txtFechaSalida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaSalida;
+
+        /// <summary>
+        /// btnCalFecSalida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCalFecSalida;
+
+        /// <summary>
+        /// calFecSalida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calFecSalida;
+
+        /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+
+        /// <summary>
+        /// txtFechaRegreso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaRegreso;
+
+        /// <summary>
+        /// btnCalFecRegreso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCalFecRegreso;
+
+        /// <summary>
+        /// calFechaRegreso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calFechaRegreso;
 
         /// <summary>
         /// btnIngresar control.
