@@ -12,7 +12,7 @@ namespace AppReservasULACIT.Controllers
 {
     public class PaqueteVehiculoManager
     {
-        string Url = "http://localhost:49220/api/paquete-vehiculo/";
+        string Url = "http://localhost:49220/api/paquetevehiculo/";
 
         HttpClient GetClient(string token)
         {
