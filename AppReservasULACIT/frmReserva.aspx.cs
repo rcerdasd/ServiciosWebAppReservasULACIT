@@ -1,4 +1,5 @@
 ﻿using AppReservasULACIT.Controllers;
+using AppReservasULACIT.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,9 @@ namespace AppReservasULACIT
         IEnumerable<Models.Reserva> reservas = new ObservableCollection<Models.Reserva>();
         ReservaManager reservaManager = new ReservaManager();
 
+        IEnumerable<Usuario> usuarios = new ObservableCollection<Usuario>();
+        UsuarioManager usuarioManager = new UsuarioManager();
+
         async private void InicializarControles()
         {
             try
@@ -22,6 +26,9 @@ namespace AppReservasULACIT
                 reservas = await reservaManager.ObtenerReservas(Session["TokenUsuario"].ToString());
                 gvReservas.DataSource = reservas.ToList();
                 gvReservas.DataBind();
+
+
+                //txtCodigoUsuario.Text = ddlUsuario.SelectedValue;
             }
             catch (Exception e)
             {
@@ -280,5 +287,6 @@ namespace AppReservasULACIT
             }
 
         }
+
     }
 }
