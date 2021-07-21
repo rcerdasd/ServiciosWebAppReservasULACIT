@@ -32,6 +32,7 @@ namespace AppReservasULACIT
             {
                 asientos = await asientoManager.ObtenerAsientos(Session["TokenUsuario"].ToString());
                 gvAsientos.DataSource = asientos.ToList();
+
                 gvAsientos.DataBind();
             }
             catch (Exception e)
